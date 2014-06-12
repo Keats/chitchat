@@ -1,3 +1,4 @@
+ # -*- coding: utf-8 -*-
 from twython import Twython
 
 APP_KEY = 'vSnRygPTqdXrpeNnvhSGifz4A'
@@ -10,12 +11,13 @@ def search_twitter(query):
   result = ""
   highest_retweet = 0
 
-  twitter_results = twitter.search(q="worldcup")['statuses']
+  twitter_results = twitter.search(q=query)['statuses']
 
-  for result in twitter_results:
-    if result['retweet_count'] > highest_retweet:
-      result = result['text']
+  for twitter_result in twitter_results:
+    if twitter_result['retweet_count'] >= highest_retweet:
+      result = twitter_result['text']
+      highest_retweet = twitter_result['retweet_count']
 
   return result
 
-print search_twitter("worldcup")
+print search_twitter("football")
