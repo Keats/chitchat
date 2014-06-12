@@ -15,9 +15,6 @@ def summarize(input_text):
     }
   );
 
-  import pdb
-  pdb.set_trace()
-
   return ' '.join(json.loads(response.raw_body)['sentences'])
 
 TEXT = """Macbeth (full title The Tragedy of Macbeth) is a tragedy written by William Shakespeare, and is considered one of his darkest and most powerful works. Set in Scotland, the play dramatizes the corrosive psychological and political effects produced when evil is chosen as a way to fulfil the ambition for power.
